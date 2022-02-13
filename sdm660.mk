@@ -83,7 +83,8 @@ PRODUCT_COPY_FILES += \
 
 # ATRACE_HAL
 PRODUCT_PACKAGES += \
-    android.hardware.atrace@1.0-service
+    android.hardware.atrace@1.0-service \
+    android.hardware.atrace@1.0.vendor
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -321,7 +322,8 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.asus_sdm660-libperfmgr \
-    android.hardware.power.stats@1.0-service.mock
+    android.hardware.power.stats@1.0-service.mock \
+    android.hardware.power.stats@1.0.vendor
 
 ifeq ($(TARGET_BOARD_PLATFORM),sdm636)
 PRODUCT_COPY_FILES += \
