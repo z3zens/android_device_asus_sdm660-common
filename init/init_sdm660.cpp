@@ -82,4 +82,6 @@ void vendor_load_properties()
 {
     set_avoid_gfxaccel_config();
     NFC_check();
+    property_override("ro.rice.chipset", "Snapdragon™ 660");
+    property_override("ro.rice.maintainer", "z3zens");
 }

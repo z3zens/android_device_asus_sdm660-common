@@ -8,7 +8,6 @@
 $(call inherit-product, vendor/asus/sdm660-common/sdm660-common-vendor.mk)
 
 # Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 PRODUCT_COMPRESSED_APEX := false
 
 # Default is nosdcard, S/W button enabled in resource
@@ -467,3 +466,57 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+
+# System Properties for riceDroid
+# See https://github.com/ricedroidOSS/android/blob/thirteen/README.mkdn#system-boot-changes
+# Enable fs-verity
+SYSTEM_PROPERTY_OVERRIDES += \
+    ro.apk_verity.mode=2
+
+# Disable updatable apex
+SYSTEM_PROPERTY_OVERRIDES += \
+    ro.apex.updatable=false
+
+# See https://github.com/ricedroidOSS/android/blob/thirteen/README.mkdn#adapting-system-properties-for-ricedroid
+# Boost Framework & Memory management tuning
+SYSTEM_PROPERTY_OVERRIDES += \
+    persist.sys.powerhal.interaction.max=200 \
+    persist.sys.powerhal.interaction.max_boost=2000 \
+    persist.sys.am.reschedule_service=true \
+    persist.sys.fw.bg_apps_limit=96 \
+    persist.sys.fw.trim_enable_memory=2147483648 \
+    persist.sys.fw.bg_phantom_proc_limit=60
+
+# Camera
+SYSTEM_PROPERTY_OVERRIDES += \
+    persist.sys.vendor.camera_override_id=20
+
+# Code linaro LMKD properties
+SYSTEM_PROPERTY_OVERRIDES += \
+    ro.lmk.kill_heaviest_task=true \
+    ro.lmk.kill_timeout_ms=100 \
+    ro.lmk.use_new_strategy=true \
+    ro.lmk.thrashing_limit=30 \
+    ro.lmk.thrashing_limit_decay=5 \
+    ro.lmk.swap_free_low_percentage=10 \
+    ro.lmk.psi_partial_stall_ms=70 \
+    ro.lmk.psi_complete_stall_ms=70 \
+    ro.vendor.lmk.force_inkernel_lmk=true \
+    ro.lmk.enable_userspace_lmk=true \
+    ro.lmk.enable_watermark_check=true \
+    ro.lmk.psi_scrit_complete_stall_ms=75 \
+    ro.lmk.nstrat_wmark_boost_factor=4 \
+    ro.lmk.super_critical=701 \
+    ro.lmk.direct_reclaim_pressure=45 \
+    ro.lmk.reclaim_scan_threshold=0 \
+    persist.sys.appcompact.enable_app_compact=false \
+    persist.sys.appcompact.full_compact_type=2 \
+    persist.sys.appcompact.some_compact_type=4 \
+    persist.sys.appcompact.compact_throttle_somesome=5000 \
+    persist.sys.appcompact.compact_throttle_somefull=10000 \
+    persist.sys.appcompact.compact_throttle_fullsome=500 \
+    persist.sys.appcompact.compact_throttle_fullfull=10000 \
+    persist.sys.appcompact.compact_throttle_bfgs=600000 \
+    persist.sys.appcompact.compact_throttle_persistent=600000 \
+    persist.sys.appcompact.rss_throttle_kb=12000 \
+    persist.sys.appcompact.delta_rss_throttle_kb=8000

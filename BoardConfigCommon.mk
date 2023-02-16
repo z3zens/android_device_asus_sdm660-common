@@ -6,7 +6,9 @@
 
 COMMON_PATH := device/asus/sdm660-common
 
+BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 # Architecture
 TARGET_ARCH := arm64
@@ -159,6 +161,15 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+
+# System Properties for riceDroid
+# See https://github.com/ricedroidOSS/android/blob/thirteen/README.mkdn#system-boot-changes
+# Flatten apex
+OVERRIDE_TARGET_FLATTEN_APEX := true
+
+# See https://github.com/ricedroidOSS/android/blob/thirteen/README.mkdn#adapting-system-properties-for-ricedroid
+# Camera ID
+TARGET_USES_DEPTHSENSOR_OVERRIDE := true
 
 # Inherit the proprietary files
 include vendor/asus/sdm660-common/BoardConfigVendor.mk
