@@ -85,9 +85,9 @@ PRODUCT_COPY_FILES += \
 
 # ANT+
 PRODUCT_PACKAGES += \
-    AntHalService-Soong \
-    com.dsi.ant.antradio_library \
-    com.dsi.ant@1.0.vendor
+    antradio_app \
+    com.dsi.ant@1.0.vendor \
+    libantradio
 
 # ATRACE_HAL
 PRODUCT_PACKAGES += \
