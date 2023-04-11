@@ -27,7 +27,7 @@ Depends On: [Device Settings Resources](https://github.com/LineageOS/android_pac
 
 ```
 #
-# Copyright (C) 2021 The dotOS Project
+# Copyright (C) 2023 The xdroid-CAF Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
