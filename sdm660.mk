@@ -99,10 +99,6 @@ PRODUCT_PACKAGES += \
     libbthost_if \
     libbluetooth_qti
 
-# Camera
-PRODUCT_PACKAGES += \
-    Snap
-
 PRODUCT_PACKAGES += \
     android.hardware.camera.common@1.0 \
     android.hardware.camera.device@3.4 \
@@ -141,10 +137,6 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
     android.frameworks.displayservice@1.0
-
-# Doze mode
-PRODUCT_PACKAGES += \
-    Doze
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -280,7 +272,7 @@ PRODUCT_PACKAGES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay-xd
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
