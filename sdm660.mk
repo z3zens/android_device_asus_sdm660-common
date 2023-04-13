@@ -323,6 +323,14 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.asus_sdm660-libperfmgr \
     android.hardware.power.stats@1.0-service.mock
 
+ifeq ($(TARGET_BOARD_PLATFORM),sdm636)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/power-libperfmgr/sdm636_powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+else
+    PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/power-libperfmgr/sdm660_powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+endif
+
 # Public Libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
