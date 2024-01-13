@@ -236,7 +236,6 @@
         <ImageDecoding memCap="20000000" />
 
     </CamcorderProfiles>
-
     <CamcorderProfiles cameraId="1">
 
         <EncoderProfile quality="qvga" fileFormat="3gp" duration="60">
@@ -286,7 +285,7 @@
                    sampleRate="48000"
                    channels="1" />
         </EncoderProfile>
-        
+
         <EncoderProfile quality="1080p" fileFormat="mp4" duration="30">
       	    <Video codec="h264"
                    bitRate="20000000"
@@ -491,7 +490,6 @@
         <ImageDecoding memCap="20000000" />
 
     </CamcorderProfiles>
-
     <CamcorderProfiles cameraId="3">
 
         <EncoderProfile quality="qvga" fileFormat="3gp" duration="60">
@@ -733,7 +731,6 @@
         <ImageDecoding memCap="20000000" />
 
     </CamcorderProfiles>
-
     <CamcorderProfiles cameraId="5">
 
         <EncoderProfile quality="qvga" fileFormat="3gp" duration="60">
@@ -853,7 +850,7 @@
     -->
     <VideoEncoderCap name="h264" enabled="true"
         minBitRate="64000" maxBitRate="42000000"
-        minFrameWidth="176" maxFrameWidth="4096"
+        minFrameWidth="176" maxFrameWidth="3840"
         minFrameHeight="144" maxFrameHeight="2160"
         minFrameRate="15" maxFrameRate="30" />
 
